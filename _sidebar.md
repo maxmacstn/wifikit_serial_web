@@ -1,4 +1,4 @@
-- [เกี่ยวกับโมดูล](readme)
+- [เกี่ยวกับโมดูล](/)
 - [การติดตั้ง](installation)
 - [เพิ่มเข้า Home Assistant](setup-ha)
 - [เพิ่มเข้า Homebridge](setup-homebridge)
