@@ -52,7 +52,7 @@
     <td class="tg-0pky">Cool</td>
   </tr>
   <tr>
-    <td class="tg-0pky">Heat</td>
+    <td class="tg-0pky">Heat*</td>
   </tr>
   <tr>
     <td class="tg-0pky">Dry</td>
@@ -110,16 +110,19 @@
 </thead>
 <tbody>
   <tr>
-    <td class="tg-0pky" rowspan="7">Basic Operation</td>
+    <td class="tg-0pky" rowspan="9">Basic Operation</td>
     <td class="tg-0pky">Power</td>
     <td class="tg-0pky">ON/OFF</td>
   </tr>
   <tr>
-    <td class="tg-0pky" rowspan="3">Mode</td>
+    <td class="tg-0pky" rowspan="4">Mode</td>
     <td class="tg-0pky">Cool</td>
   </tr>
   <tr>
     <td class="tg-0pky">Dry</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Heat*</td>
   </tr>
   <tr>
     <td class="tg-0pky">Fan Only</td>
@@ -133,6 +136,10 @@
     <td class="tg-0pky">Auto, 1, 2, 3, 4, 5</td>
   </tr>
   <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">Swing Vertical*</span></td>
+    <td class="tg-0pky">Hold, Swing</td>
+  </tr>
+    <tr>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal">Swing Vertical*</span></td>
     <td class="tg-0pky">Hold, Swing</td>
   </tr>
