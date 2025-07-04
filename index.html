@@ -14,28 +14,59 @@
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css"> -->
 
-  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
-  <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)"
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: light)"
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
   <style>
-
     :root {
       --base-font-size: 18px;
-      --theme-color   : green;
+      --theme-color: green;
 
-      --sidebar-width                               : 20rem;
+      --sidebar-width: 20rem;
 
-      --sidebar-toggle-height                       : 45px;
-      --sidebar-toggle-width                        : 60px;
-      --sidebar-toggle-icon-height                  : 10px;
-      --sidebar-toggle-icon-stroke-width            : 2px;
-      --sidebar-toggle-icon-width                   : 20px;
-      --sidebar-toggle-icon-height                  : 15px;
+      --sidebar-toggle-height: 45px;
+      --sidebar-toggle-width: 60px;
+      --sidebar-toggle-icon-height: 10px;
+      --sidebar-toggle-icon-stroke-width: 2px;
+      --sidebar-toggle-icon-width: 20px;
+      --sidebar-toggle-icon-height: 15px;
+    }
+
+    .lang-button-group {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      display: flex;
+      gap: 8px;
+    }
+
+    .lang-button {
+      padding: 4px 8px;
+      border: none;
+      background: var(--theme-color);
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    .lang-button:hover {
+      background: #369870;
     }
   </style>
 
 </head>
 
 <body>
+
+  <div class="lang-button-group">
+    <button class="lang-button" id="btn-en" style="display: none;" onclick="changeLanguage('#/en/')">🇺🇸 English</button>
+    <button class="lang-button" id="btn-th"  style="display: none;" onclick="changeLanguage('#/th/')">🇹🇭 ไทย</button>
+  </div>
+
   <div id="app"></div>
 
   <script>
@@ -43,6 +74,7 @@
     window.$docsify = {
       name: 'WiFiKit Serial',
 
+      coverpage: true,
       // Sidebar Configuration
       auto2top: true,
       loadSidebar: true,
@@ -56,7 +88,24 @@
         noData: 'No matches found.',
         // Headline depth, 1 - 6
         depth: 2,
-      }
+        pathNamespaces: ['/th', '/en-us'],
+      },
+
+      alias: {
+        '/': '/th/',      // <- This sets the default language
+        '/en': '/en-us/',
+        '/en/(.*)': '/en-us/$1',
+        '/th/(.*)': '/th/$1',
+        '/_sidebar.md': '/th/_sidebar.md',
+      },
+
+      coverpage: {
+        '/en/': '_coverpage.md',
+        '/th/': '_coverpage.md',
+        '/': 'th/_coverpage.md',      // <- This sets the default language
+      },
+
+
     };
   </script>
 
@@ -67,5 +116,33 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+    <!-- Language button -->
+  <script>  
+
+    function updateLanguageButtons() {
+        const hash = location.hash;
+        const btnEn = document.getElementById("btn-en");
+        const btnTh = document.getElementById("btn-th");
+        if (hash.includes("/en/") || hash.includes("/en-us/")) {
+        btnTh.style.display = "inline-block";
+        btnEn.style.display = "none";
+      } else if (hash.includes("/th/") || hash === "#/") {
+        btnEn.style.display = "inline-block";
+        btnTh.style.display = "none";
+      } else {
+        // Default: show both or just English
+        btnEn.style.display = "inline-block";
+        btnTh.style.display = "inline-block";
+      }
+    }
+    
+    window.addEventListener("hashchange", updateLanguageButtons);
+    window.addEventListener("load", updateLanguageButtons);
+    function changeLanguage(path) {
+      window.location.href = path;
+    }
+  </script>
 </body>
+
 </html>

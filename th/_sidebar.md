@@ -1,0 +1,6 @@
+- [เกี่ยวกับโมดูล](/th/README.md)
+- [การติดตั้ง](/th/installation)
+- [เพิ่มเข้า Home Assistant](/th/setup-ha)
+- [เพิ่มเข้า Homebridge](/th/setup-homebridge)
+- [สถานะไฟ LED และการตั้งค่าโมดูล](/th/module-setting)
+- [ขนาดและมิติ](/th/dimension)

@@ -1,9 +1,8 @@
-# สถานะไฟ LED และการตั้งค่าโมดูล
+# LED Status and Module Settings
 
-![module_img](/img/components.jpg ':size=70%')
+<img src="../img/components-en.jpeg" style="max-width:500px;width:100%">
 
-
-## สถานะของไฟ LED
+## LED Status
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:black;border-spacing:0;}
@@ -14,36 +13,36 @@
 .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
 .tg .tg-hyan{background-color:#34cdf9;text-align:left;vertical-align:top}
 .tg .tg-fymr{border-color:black;font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-ncd7{background-color:#ffffc7;border-color:black;text-align:left;vertical-align:top}
+.tg .tg-ncd7{background-color:#81f542;border-color:black;text-align:left;vertical-align:top}
 .tg .tg-0pky{border-color:black;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
 </style>
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-fymr">ไฟ LED</th>
-    <th class="tg-fymr">ติดค้าง</th>
-    <th class="tg-fymr">กระพริบ</th>
-    <th class="tg-1wig">ดับ</th>
+    <th class="tg-fymr">LED</th>
+    <th class="tg-fymr">Solid</th>
+    <th class="tg-fymr">Blinking</th>
+    <th class="tg-1wig">Off</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-ncd7">PWR (สีเหลือง)</td>
-    <td class="tg-0pky">ไฟเข้า โมดูลทำงานปรกติ</td>
+    <td class="tg-ncd7">PWR<br>(Yellow/Green)</td>
+    <td class="tg-0pky">Power on, module working normally</td>
     <td class="tg-0pky">Safe Mode</td>
-    <td class="tg-0lax">ไฟไม่เข้า หรือโมดูลมีปัญหา</td>
+    <td class="tg-0lax">No power or module issue</td>
   </tr>
   <tr>
-    <td class="tg-hyan">ACT (สีน้ำเงิน)</td>
-    <td class="tg-0pky">ไม่สามารถเชื่อมต่อได้/AP Mode</td>
+    <td class="tg-hyan">ACT<br>(Blue)</td>
+    <td class="tg-0pky">Cannot connect / AP Mode</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0lax">การเชื่อมต่อปรกติ</td>
+    <td class="tg-0lax">Normal connection</td>
   </tr>
 </tbody>
 </table>
 
-## ปุ่มสั่งงาน
+## Control Button
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -57,30 +56,34 @@
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-1wig">เวลาในการกดปุ่ม (วินาที)</th>
-    <th class="tg-1wig">การทำงาน</th>
+    <th class="tg-1wig">Button Press Duration (seconds)</th>
+    <th class="tg-1wig">Action</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td class="tg-0lax">&lt; 0.5</td>
-    <td class="tg-0lax">เปิด/ปิด แอร์</td>
+    <td class="tg-0lax">Turn air conditioner ON/OFF</td>
   </tr>
   <tr>
     <td class="tg-0lax">5 - 15</td>
-    <td class="tg-0lax">Reboot โมดูล</td>
+    <td class="tg-0lax">Reboot module</td>
   </tr>
   <tr>
     <td class="tg-0lax">&gt; 15</td>
-    <td class="tg-0lax">Reset คืนค่าโรงงาน</td>
+    <td class="tg-0lax">Factory reset</td>
   </tr>
 </tbody>
 </table>
 
-## การเปิด/ปิดเสียง Buzzer ตอนมีการสั่งงาน
-1. เข้าไปที่ IP Address ของตัวโมดูล (สามารถกดที่ปุ่ม VISIT ในหน้า integration)
-2. ไปที่ Setup -> Unit
-3. เลือก Beep เป็น ON หรือ OFF
-4. กด Save & Reboot
+## Enabling/Disabling Buzzer and LED
 
-![mqtt_int](/img/mqtt_visit.png ':size=70%')
+1. Go to the module's IP Address (you can click the VISIT button on the integration page)
+
+<img src="../img/mqtt_visit.png " style="max-width:400px;width:100%">
+
+2. Go to Setup -> Unit  
+3. Set Beep or LED to ON or OFF  
+4. Click Save & Reboot
+
+<img src="../img/config-beep-led.png" style="max-width:400px;width:100%">
