@@ -64,5 +64,5 @@ Part number ของตัว PC Board คือ BRP067A42 และ BRP980B42 
 
 ![wall-3](../img/installation-fba.jpg  ':size=50%')
 
-### ขั้นตอนถัดไป [ เพิ่มเข้าระบบ Home Assistant](/setup-ha)
+### ขั้นตอนถัดไป [ เพิ่มเข้าระบบ Home Assistant](/th/setup-ha)
 

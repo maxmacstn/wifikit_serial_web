@@ -63,5 +63,5 @@ PC Board part numbers are BRP067A42 and BRP980B42. You can order directly from D
 - Daikin Cassette FBA
 
 ![wall-3](../img/installation-fba.jpg  ':size=50%')
-### Next Step: [ Adding to Home Assistant](/setup-ha)
+### Next Step: [ Adding to Home Assistant](/en-us/setup-ha)
 
