@@ -63,5 +63,35 @@ PC Board part numbers are BRP067A42 and BRP980B42. You can order directly from D
 - Daikin Cassette FBA
 
 ![wall-3](../img/installation-fba.jpg  ':size=50%')
+
+## Toshiba / Carrier
+### Supported Models
+Carrier / Toshiba wall-type air conditioners:
+- Connect via the factory-prepared cable in the electrical connection box, such as X-Inverter*, ION Strike, Copper 11*
+- Connect directly to the control board at the `CN21` or `CN22` port
+
+\* If your air conditioner already has a factory-installed Wi-Fi module, you can replace it with this module.
+
+**You can check supported models from this** [Google Sheets](https://docs.google.com/spreadsheets/d/1LsEGS0IqN1i_Od7n3RD5Nc9AyF3FmkUIxi9akQcPdeA/edit?usp=sharing)
+
+### Installation
+1. **Turn off the circuit breaker**
+2. Connect the module to the air conditioner
+    - If your AC has already equipped with a Wi-Fi function, remove the factory module and plug this one in directly
+    - If your model has a Wi-Fi cable prepared, remove the control box cover and plug the module in
+    - If there is no cable, remove the AC front panel and control box to connect the cable to the PCB board
+
+3. Place the module at the front of the unit or another external location. Do not place it inside the control box, as this may reduce Wi-Fi signal strength.
+4. **Turn on the circuit breaker** and check the module status light
+5. [Connect to the app](/en-us/setup-tuya.md)
+
+![installation-carrier](../img/installation-carrier.jpeg )
+
+#### Carrier A/C removal guide, for the model that does not have front connection cable.
+![carrier-removal-1](../img/carrier-removal-1.jpg )
+![carrier-removal-2](../img/carrier-removal-2.jpg )
+![carrier-removal-3](../img/carrier-removal-3.jpg )
+
+
 ### Next Step: [ Adding to Home Assistant](/en-us/setup-ha)
 

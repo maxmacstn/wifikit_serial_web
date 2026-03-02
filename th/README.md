@@ -1,6 +1,6 @@
 # เกี่ยวกับ WiFiKit Serial
 
-> WiFiKit Serial คือโมดูล Wi-Fi สำหรับเชื่อมต่อเครื่องปรับอากาศเข้ากับระบบ [Home Assistant](https://www.home-assistant.io/) และ [Homebridge](https://homebridge.io/) รองรับเครื่องปรับอากาศที่มีช่อง Serial Interface บนบอร์ดสำหรับสั่งงานจากโมดูลภายนอก เช่น Mitsubishi Mr.Slim และ Daikin
+> WiFiKit Serial คือโมดูล Wi-Fi สำหรับเชื่อมต่อเครื่องปรับอากาศเข้ากับระบบ [Home Assistant](https://www.home-assistant.io/) และ [Homebridge](https://homebridge.io/) รองรับเครื่องปรับอากาศที่มีช่อง Serial Interface บนบอร์ดสำหรับสั่งงานจากโมดูลภายนอก เช่น Mitsubishi Mr.Slim, Daikin, Toshiba และ Carrier
 
 <img src="../img/components-en.jpeg" style="max-width:500px;width:100%">
 
@@ -18,6 +18,7 @@
 ถึงแม้ว่าแอร์ทั้งสองรุ่นจะใช้ Hardware เดียวกัน แต่ว่าตัว Firmware บนบอร์ดนั้นต่างกัน โดยแอร์แต่ละยี่ห้อใช้ Firmware ดังนี้
 - Mitsubishi MR.Slim: [mitsubishi2MQTT](https://github.com/maxmacstn/mitsubishi2MQTT)
 - Daikin: [daikin2MQTT](https://github.com/maxmacstn/daikin2MQTT)
+- ToshibaCarrier: [ToshibaCarrierController](https://github.com/maxmacstn/ToshibaCarrierController)
 
 
 ## ฟังก์ชั่นการทำงานที่รองรับ
@@ -178,6 +179,86 @@ RA = Room Air, SkyAir = Cassette Type
 </table>
 
 \**รองรับกับเครื่องปรับอากาศบางรุ่น*
+
+### Toshiba / Carrier
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;  text-align: left;}
+
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg"><b>คำสั่ง<b></th>
+    <th class="tg" colspan="2"><b>การทำงาน<b></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky" rowspan="9">คำสั่งพื้นฐาน</td>
+    <td class="tg-0pky">สถานะการทำงาน</td>
+    <td class="tg-0pky">เปิด/ปิด</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" rowspan="4">โหมดการทำงาน</td>
+    <td class="tg-0pky">Cool</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Dry</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Heat*</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Fan Only</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">การตั้งอุณภูมิเป้าหมาย</td>
+    <td class="tg-0pky">ปรับได้ความละเอียด 1°C </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ความแรงพัดลม</td>
+    <td class="tg-0pky">Auto, Quiet, 1, 2, 3, 4, 5</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">การส่าย*</span></td>
+    <td class="tg-0pky">ปิด, แนวตั้ง+แนวนอน, แนวตั้ง, แนวนอน, ตั้งค้างตำแหน่ง 1 - 5</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">P-SEL*</td>
+    <td class="tg-0pky">50%, 75%, 100%</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" rowspan="5">การดูข้อมูล</td>
+    <td class="tg-0pky">อุณหภูมิห้อง**</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">ความละเอียด 1°C</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">อุณหภูมิภายนอก**</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">ความละเอียด 1°C</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">สถานะ Self-Clean</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">ทำงาน / ไม่ทำงาน</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">สถานะ Off Timer</td>
+    <td class="tg-0pky">ทำงาน / ไม่ทำงาน</td>
+  </tr>
+    <tr>
+    <td class="tg-0pky">หน่วยการใช้พลังงาน(kWh)***</td>
+    <td class="tg-0pky">วัน, สัปดาห์, เดือน, ปี </td>
+  </tr>
+</tbody>
+</table>
+
+\**การรองรับแตกต่างกันไปในแต่ละรุ่น* <br>
+\*\**หากแอร์ไม่รองรับ ค่าที่แสดงจะเป็น 0°C*<br>
+\*\*\**สำหรับแอร์ที่มีฟีเจอร์วัดค่าไฟ (Energy Monitoring) เท่านั้น*<br>
+
 
 
 ### ตัวอย่างหน้า MQTT Integration

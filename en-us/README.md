@@ -1,6 +1,6 @@
 # About WiFiKit Serial
 
-> WiFiKit Serial is a Wi-Fi module for connecting air conditioners to [Home Assistant](https://www.home-assistant.io/) and [Homebridge](https://homebridge.io/). It supports air conditioners with a Serial Interface port on the board for external module control, such as Mitsubishi Electric Mr.SLIM and Daikin.
+> WiFiKit Serial is a Wi-Fi module for connecting air conditioners to [Home Assistant](https://www.home-assistant.io/) and [Homebridge](https://homebridge.io/). It supports air conditioners with a Serial Interface port on the board for external module control, such as Mitsubishi Electric Mr.SLIM, Daikin, Toshiba, and Carrier
 
 <img src="../img/components-en.jpeg" style="max-width:500px;width:100%">
 
@@ -20,6 +20,7 @@ Although the hardware is desiged to support various of air conditioner brands, t
 
 - Mitsubishi MR.Slim: [mitsubishi2MQTT](https://github.com/maxmacstn/mitsubishi2MQTT)
 - Daikin: [daikin2MQTT](https://github.com/maxmacstn/daikin2MQTT)
+- ToshibaCarrier: [ToshibaCarrierController](https://github.com/maxmacstn/ToshibaCarrierController)
 
 ## Supported Functions
 The supported functions may vary depending on the air conditioner model.
@@ -178,6 +179,86 @@ RA = Room Air, SkyAir = Cassette Type
 </table>
 
 \**Supported on some air conditioner models*
+
+### Toshiba / Carrier
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;  text-align: left;}
+
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg"><b>Command</b></th>
+    <th class="tg" colspan="2"><b>Operation</b></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky" rowspan="9">Basic Commands</td>
+    <td class="tg-0pky">Operating Status</td>
+    <td class="tg-0pky">On/Off</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" rowspan="4">Operating Mode</td>
+    <td class="tg-0pky">Cool</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Dry</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Heat*</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Fan Only</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Target Temperature Setting</td>
+    <td class="tg-0pky">Adjustable in 1°C steps</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Fan Speed</td>
+    <td class="tg-0pky">Auto, Quiet, 1, 2, 3, 4, 5</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">Swing*</span></td>
+    <td class="tg-0pky">Off, Both, Vertical, Horizontal, Fixed position 1 - 5</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">P-SEL*</td>
+    <td class="tg-0pky">50%, 75%, 100%</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" rowspan="5">Information Display</td>
+    <td class="tg-0pky">Room Temperature**</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">1°C resolution</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Outdoor Temperature**</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">1°C resolution</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Self-Clean Status</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">Active / Inactive</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Off Timer Status</td>
+    <td class="tg-0pky">Active / Inactive</td>
+  </tr>
+    <tr>
+    <td class="tg-0pky">Energy Usage (kWh)***</td>
+    <td class="tg-0pky">Day, Week, Month, Year</td>
+  </tr>
+</tbody>
+</table>
+
+\* Supported features may vary by model.<br>
+\*\* If the air conditioner does not support this, the displayed value will be 0°C.<br>
+\*\*\* Only for air conditioners with Energy Monitoring feature.<br>
+
 
 ### Example of device page in MQTT integration.
 ![ha-screenshot](../img/ha-conf-2.png)
